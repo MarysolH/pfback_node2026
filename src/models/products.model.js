@@ -46,7 +46,14 @@ export const findProductById = async (id) => {
 
 export const saveProduct = async (product) => {
 
+    console.log("Producto recibido en modelo:");
+    console.log(product);
+
+    console.log("Intentando guardar en Firestore...");
+
     const document = await addDoc(productsCollection, product);
+
+    console.log("Guardado OK:", document.id);
 
     return {
         id: document.id,
@@ -54,7 +61,6 @@ export const saveProduct = async (product) => {
     };
 
 };
-
 
 export const deleteProduct = async (id) => {
 
